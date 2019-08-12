@@ -19,7 +19,7 @@ public class  ContactInfo {
      * Returns the full name of the individual 
      * @return The full name
      */
-    String getName(){
+    public String getName(){
         return name;
     }
 
@@ -27,7 +27,7 @@ public class  ContactInfo {
      * Returns the phone number formatted as a sequence of digits
      * @return The formatted phone number
      */
-    String getPhoneNumber(){
+    public String getPhoneNumber(){
         return phoneNumber;
     }
 
@@ -35,7 +35,7 @@ public class  ContactInfo {
      * Returns the email address of the inidividual
      * @return The email address
      */
-    String getEmailAddress(){
+    public String getEmailAddress(){
         return emailAddress;
     }
     

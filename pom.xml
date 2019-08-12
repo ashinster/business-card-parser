@@ -56,6 +56,10 @@
 			<version>3.9.2</version>
 			<classifier>models</classifier>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -63,13 +67,8 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<argLine>-Xmx1024m</argLine>
+    				<addResources>true</addResources>
 				</configuration>
 			</plugin>
 
@@ -85,12 +84,61 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 					</execution>
+					<!-- Run 'npm install' -->
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+					</execution>
+					<!-- Runs 'npm build' and creates "/dist" directory -->
+					<execution>
+						<id>npm run build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>prod</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run-script build</arguments>
+						</configuration>
+						<phase>generate-resources</phase>
+					</execution>
 				</executions>
 				<configuration>
 					<!-- Latest version as of 8/9/19 -->
 					<nodeVersion>v10.16.2</nodeVersion>
-					<workingDirectory>src/main/frontend/business-card-parser</workingDirectory>
+					<workingDirectory>src/main/webapp/business-card-parser</workingDirectory>
 				</configuration>
+			</plugin>
+
+			<!-- Copies Web assets -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/webapp/business-card-parser/dist/business-card-parser</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
