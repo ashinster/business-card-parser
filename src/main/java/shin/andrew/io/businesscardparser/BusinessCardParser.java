@@ -15,7 +15,7 @@ import edu.stanford.nlp.util.PropertiesUtils;
 import shin.andrew.io.businesscardparser.data.ContactInfo;
 
 /**
- * BusinessCardParser
+ * Parser which will scan String documents and search for certain pieces of data.
  */
 @Component
 public class BusinessCardParser {
@@ -44,6 +44,11 @@ public class BusinessCardParser {
         phoneNumberPattern = Pattern.compile(phoneNumberRegex);
     }
 
+    /**
+     * Takes in a document string and looks for names, phone numbers, and emails.
+     * @param document The document expressed as a String
+     * @return a ContactInfo object which will hold the found entities
+     */
     public ContactInfo getContactInfo(String document) {
 
         long getContactInfoStartTime = System.currentTimeMillis();
