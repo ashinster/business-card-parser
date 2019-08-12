@@ -1,6 +1,6 @@
 # Asymmetric Programming Challenge #1
 
-This is a solution by Andrew Shin for [Asymmetric](https://asymmetrik.com/programming-challenges/)'s "Business Card OCP"   programming challenge.  
+This is a solution by Andrew Shin for [Asymmetric](https://asymmetrik.com/programming-challenges/)'s "Business Card OCR"   programming challenge.  
 
  This project uses the [Stanford CoreNLP library](https://stanfordnlp.github.io/CoreNLP/) in order to perform linguistic analysis on a piece of text. Specifically we will be using the [NER](https://nlp.stanford.edu/software/CRF-NER.html) tool which detects Locations, Persons, and Organizations.
 
