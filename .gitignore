@@ -197,3 +197,6 @@ typings/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+## Mine
+src/main/webapp/business-card-parser/dist/**
