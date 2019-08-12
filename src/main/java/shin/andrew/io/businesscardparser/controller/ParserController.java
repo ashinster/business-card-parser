@@ -25,7 +25,7 @@ public class ParserController {
     @PostMapping(value="/parse")
     public ContactInfo parseDocument(@RequestBody String document) {
 
-        logger.info("Received data: {}", document);
+        logger.debug("Received data: {}", document);
         
         ContactInfo contactInfo = parser.getContactInfo(document);
 
