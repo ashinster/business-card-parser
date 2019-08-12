@@ -22,7 +22,7 @@ public class BusinessCardParser {
     private static final Logger logger = LoggerFactory.getLogger("BusinessCardParser.class");
 
     private final String emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
-    private final String phoneNumberRegex = "(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]\\d{4}";
+    private final String phoneNumberRegex = "\\b((\\+?\\d{1,2}\\s?)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4})$";
 
     private Pattern emailPattern;
     private Pattern phoneNumberPattern;
